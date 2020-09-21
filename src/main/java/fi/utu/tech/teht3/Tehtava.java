@@ -22,12 +22,7 @@ public class Tehtava {
     }
 
     boolean isValidArea(int[][] toArr, int[][] fromArr, Position pos){
-        int[][] temp = new int[toArr.length][toArr[0].length];
-        for(int x = 0; x < toArr.length; x++){
-            for(int y = 0; y < toArr[x].length; y++){
-                temp[x][y] = toArr[x][y];
-            }
-        }
+        int[][] temp = getCopyOfArray(toArr);
 
         for(int x = 0; x < fromArr.length; x++){
             for(int y = 0; y < fromArr[x].length; y++){
@@ -42,6 +37,16 @@ public class Tehtava {
         }
         toArr = temp;
         return true;
+    }
+
+    int[][] getCopyOfArray(int[][] arr){
+        int[][] temp = new int[arr.length][arr[0].length];
+        for(int x = 0; x < arr.length; x++){
+            for(int y = 0; y < arr[x].length; y++){
+                temp[x][y] = arr[x][y];
+            }
+        }
+        return temp;
     }
 
     class Position {
