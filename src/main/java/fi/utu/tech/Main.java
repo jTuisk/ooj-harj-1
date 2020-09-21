@@ -1,6 +1,7 @@
 package fi.utu.tech;
 
 import fi.utu.tech.fizzbuzz.FizzBuzz;
+import fi.utu.tech.teht3.Tehtava;
 
 public class Main {
     /**
