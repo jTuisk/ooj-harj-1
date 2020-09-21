@@ -29,6 +29,10 @@ public class Tehtava {
         for(int x = 0; x < fromArr.length; x++){
             for(int y = 0; y < fromArr[x].length; y++){
                 if(fromArr[x][y] != 0){
+
+                    if(toArr[pos.getX()+x][pos.getY()+y] != 0)
+                        continue;
+
                     if(isValidPosition(toArr, new Position(pos.getX()+x, pos.getY()+y))){
                         temp[pos.getX()+x][pos.getY()+y] = fromArr[x][y];
                     }else{

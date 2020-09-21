@@ -5,8 +5,7 @@ public class Tehtava {
     /**
      * Palauttaa arvon tosi, jos taulukossa 'kiva' kaikki arvot ovat positiiviset.
      * @.pre    kiva != null &&
-     *          FORALL(num: kiva; num > 0)
-     * @.post   true
+     * @.post   FORALL(num: kiva; num > 0)
      */
     boolean onKiva(int[] kiva){
         for(int num : kiva){
@@ -21,8 +20,7 @@ public class Tehtava {
      * @.pre    str != null &&
      *          str.length > 0 &&
      *          c != null &&
-     *          FORALL(i: 0 <= i < str.length; str[i] == c)
-     * @.post   true
+     * @.post    FORALL(i: 0 <= i < str.length; str[i] == c)
      */
     boolean sisaltaakoMerkkiMerkkijonossa(String str, char c){
         for(int i = 0; i < str.length(); i++){
@@ -36,10 +34,9 @@ public class Tehtava {
      * @.pre    lottorivi != null &&
      *          lottorivi.length == 7 &&
      *          FORALL(num: lottorivi; num > 0 && num < 41)
-     * @.post   EXISTS(k:
-     *              FORALL(i: 0 <= i < lottorivi.length; Math.min(lottorivi[mín_num_index], lottorivi[i]);
-     *              EXISTS(j: 0 <= j < lottorivi.length;
-     *              i != j && RESULT[i] == RESULT[j]))
+     * @.post   EXIST(i: 0 <= i < lottorivi.lengh;
+     *              FORALL(j: 0 <= j < lottorivi.length;
+     *              lottorivi[i] == lottorivi[j])
      */
     boolean lottorivinMinimialkiollaDublikaatteja(int[] lottorivi){
         int min_num_index = 0;
