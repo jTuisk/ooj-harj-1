@@ -1,5 +1,7 @@
 package fi.utu.tech.teht3;
 
+import java.util.Arrays;
+
 public class Tehtava {
 
     /**
@@ -36,6 +38,9 @@ public class Tehtava {
             }
         }
         toArr = temp;
+        for(int i = 0; i < toArr.length; i++){
+            System.out.println(Arrays.toString((toArr[i])));
+        }
         return true;
     }
 

@@ -2,6 +2,7 @@ package fi.utu.tech;
 
 import fi.utu.tech.fizzbuzz.FizzBuzz;
 import fi.utu.tech.teht3.*;
+import java.util.Arrays;
 
 public class Main {
     /**
@@ -22,6 +23,9 @@ public class Main {
     public static void main(String[] args) {
         Tehtava t3 = new Tehtava();
 
-        System.out.println(t3.updatedValidArea(toArr, fromArr, new Position(1,1)));
+        System.out.println(t3.updatedValidArea(toArr, fromArr, new Position(2,2)));
+        for(int i = 0; i < toArr.length; i++){
+            System.out.println(Arrays.toString((toArr[i])));
+        }
     }
 }
