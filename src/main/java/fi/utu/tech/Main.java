@@ -1,6 +1,6 @@
 package fi.utu.tech;
 
-import fi.utu.tech.teht4.*;
+import fi.utu.tech.teht3.*;
 import java.util.Arrays;
 
 public class Main {

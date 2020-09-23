@@ -1,10 +1,7 @@
-package fi.utu.tech.teht4;
+package fi.utu.tech.teht3;
 
 import fi.utu.tech.teht1.Tehtava;
 import net.jqwik.api.*;
-import net.jqwik.api.arbitraries.StreamableArbitrary;
-
-import java.util.Comparator;
 
 public class Tehtava1Test {
 

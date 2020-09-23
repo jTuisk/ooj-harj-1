@@ -1,4 +1,4 @@
-package fi.utu.tech.teht4;
+package fi.utu.tech.teht3;
 
 public class Position {
     int x;
