@@ -35,7 +35,7 @@ public class Tehtava1Test {
     /*Tehtävä 1B*/
 
     @Example
-    boolean testB_True() {
+    boolean testB_TrueExample() {
         String str = "tässä on k kirjaimia";
         return t.sisaltaakoMerkin(str);
     }
@@ -53,18 +53,19 @@ public class Tehtava1Test {
     /*Tehtävä 1C*/
 
     @Example
-    boolean testC_True() {
+    boolean testC_TrueExample() {
         int[] arr =  {3,2,2,4,5,6,7};
         return t.lottorivinMinimialkiollaDublikaatteja(arr);
     }
 
+
     @Provide
-    Arbitrary<int[]> intArrayC_False() {
+    Arbitrary<int[]> intArrayC() {
         Arbitrary<Integer> num = Arbitraries.integers().between(1,39);
         return num.array(int[].class).ofSize(7);
     }
 
-    @Property boolean testC_False(@ForAll("intArrayC_False") int[] arr){
+    @Property boolean testC_False(@ForAll("intArrayC") int[] arr){
         return t.lottorivinMinimialkiollaDublikaatteja(arr);
     }
 }
