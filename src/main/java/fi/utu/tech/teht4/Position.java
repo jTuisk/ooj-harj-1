@@ -1,4 +1,4 @@
-package fi.utu.tech.teht3;
+package fi.utu.tech.teht4;
 
 public class Position {
     int x;
@@ -15,7 +15,9 @@ public class Position {
      * @.pre true
      * @.post x
      */
-    public int getX() { return this.x; }
+    public int getX() {
+        return this.x;
+    }
 
     /**
      * palauttaa y arvon

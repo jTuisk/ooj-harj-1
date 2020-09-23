@@ -1,16 +1,8 @@
-package fi.utu.tech.teht3;
+package fi.utu.tech.teht4;
 
 import java.util.Arrays;
 
 public class Tehtava {
-
-    /**
-     * Check if given multidimension array position is valid to set new value.
-     *
-     * @param arr = Multidimension int array
-     * @param pos = Class position that includes x and y coordinates ( new Position(x,y)
-     * @return position(x,y) value is 0 then return true else false
-     */
 
     /**
      * Check if given multidimension array position is valid to set new value.
@@ -19,7 +11,7 @@ public class Tehtava {
      *          pos != null
      * @.post   (arr[pos.getX()][pos.getY()] == 0) Throw IndexOutOfBoundsException
      *
-     * @.Throw  false
+     * @.Throw  false???
      */
     boolean isValidPosition(int[][] arr, Position pos) {
         if(arr == null || pos == null)
@@ -41,7 +33,7 @@ public class Tehtava {
      * @.pre    toArr != null &&
      *          fromArr != null &&
      *          pos != null
-     * @.post
+     * @.post   RESULT !isValidPosition(toArr, new Position(pos.getX()+x, pos.getY()+y))
      */
     public boolean updatedValidArea(int[][] toArr, int[][] fromArr, Position pos){
         int[][] temp = getCopyOfMultidimensionArray(toArr);
@@ -49,8 +41,7 @@ public class Tehtava {
         for(int x = 0; x < fromArr.length; x++){
             for(int y = 0; y < fromArr[x].length; y++){
                 if(fromArr[x][y] != 0){
-
-                    if(toArr[pos.getX()+x][pos.getY()+y] != 0)
+                    if(toArr[pos.getX()+x][pos.getY()+y] != 0) //??
                         continue;
 
                     if(isValidPosition(toArr, new Position(pos.getX()+x, pos.getY()+y))){

@@ -1,7 +1,6 @@
 package fi.utu.tech;
 
-import fi.utu.tech.fizzbuzz.FizzBuzz;
-import fi.utu.tech.teht3.*;
+import fi.utu.tech.teht4.*;
 import java.util.Arrays;
 
 public class Main {
@@ -28,4 +27,7 @@ public class Main {
             System.out.println(Arrays.toString((toArr[i])));
         }
     }
+
+
+
 }

@@ -5,9 +5,9 @@ public class Tehtava {
     /**
      * Palauttaa arvon tosi, jos taulukossa 'kiva' kaikki arvot ovat positiiviset.
      * @.pre    kiva != null
-     * @.post   FORALL(num: kiva; num > 0)
+     * @.post   FORALL(num: kiva; kiva[num] > 0)
      */
-    boolean onKiva(int[] kiva){
+    public boolean onKiva(int[] kiva){
         if(kiva == null)
             return false;
 
@@ -18,15 +18,14 @@ public class Tehtava {
         return true;
     }
 
-    /**
+    /** ####
      * Palauttaa arvon tosi, jos merkkijonossa str -> 'syöte' on merkki c -> 'k'
      * @.pre    str != null &&
      *          str.length > 0 &&
-     *          c != '\u0000'
-     * @.post    FORALL(i: 0 <= i < str.length; str[i] == c)
+     * @.post   EXIST(i: 0 <= i < str.length; str[i] == 'k')
      */
-    boolean sisaltaakoMerkkiMerkkijonossa(String str, char c){
-        if(str == null || str.length() < 1 || c == '\u0000')
+    public boolean sisaltaakoMerkkiMerkkijonossa(String str){
+        if(str == null || str.length() < 1)
             return false;
 
         for(int i = 0; i < str.length(); i++){
@@ -39,12 +38,20 @@ public class Tehtava {
     /**
      * @.pre    lottorivi != null &&
      *          lottorivi.length == 7 &&
-     *          FORALL(num: lottorivi; num > 0 && num < 41)
+     *          FORALL(num: lottorivi; num > 0 && num < 40)
      * @.post   EXIST(i: 0 <= i < lottorivi.lengh;
      *              FORALL(j: 0 <= j < lottorivi.length;
-     *              lottorivi[i] == lottorivi[j])
+     *                  i != j && lottorivi[i] == lottorivi[j])
      */
-    boolean lottorivinMinimialkiollaDublikaatteja(int[] lottorivi){
+    public boolean lottorivinMinimialkiollaDublikaatteja(int[] lottorivi){
+        if(lottorivi == null || lottorivi.length != 7)
+            return false;
+
+        for(int n : lottorivi){
+            if(n < 1 || n > 39)
+                return false;
+        }
+
         int min_num_index = 0;
         for(int i = 1; i < lottorivi.length; i++){
             if(lottorivi[min_num_index] > lottorivi[i]){
@@ -61,6 +68,4 @@ public class Tehtava {
         }
         return false;
     }
-
-
 }
