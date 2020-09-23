@@ -24,7 +24,7 @@ public class Tehtava {
      *          str.length >
      * @.post   EXIST(i: 0 <= i < str.length; str[i] == 'k')
      */
-    public boolean sisaltaakoMerikin(String str){
+    public boolean sisaltaakoMerkin(String str){
         if(str == null || str.length() < 1)
             return false;
 
