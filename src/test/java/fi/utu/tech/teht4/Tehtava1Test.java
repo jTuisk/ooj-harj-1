@@ -12,7 +12,7 @@ public class Tehtava1Test {
     }
 
     @Property void testB(@ForAll String s){
-        t.sisaltaakoMerkkiMerkkijonossa(s);
+        t.sisaltaakoMerikin(s);
     }
 
     @Property void testC(@ForAll int[] arr){

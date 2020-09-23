@@ -18,18 +18,18 @@ public class Tehtava {
         return true;
     }
 
-    /** ####
-     * Palauttaa arvon tosi, jos merkkijonossa str -> 'syöte' on merkki c -> 'k'
+    /**
+     * Palauttaa arvon tosi, jos merkkijonossa on merkki'k'
      * @.pre    str != null &&
-     *          str.length > 0 &&
+     *          str.length >
      * @.post   EXIST(i: 0 <= i < str.length; str[i] == 'k')
      */
-    public boolean sisaltaakoMerkkiMerkkijonossa(String str){
+    public boolean sisaltaakoMerikin(String str){
         if(str == null || str.length() < 1)
             return false;
 
         for(int i = 0; i < str.length(); i++){
-            if(str.charAt(i) == c)
+            if(str.charAt(i) == 'k')
                 return true;
         }
         return false;
