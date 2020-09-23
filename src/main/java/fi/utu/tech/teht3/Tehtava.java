@@ -9,22 +9,42 @@ public class Tehtava {
      *
      * @param arr = Multidimension int array
      * @param pos = Class position that includes x and y coordinates ( new Position(x,y)
-     * @return If position(x,y) value is 0 return true else false
+     * @return position(x,y) value is 0 then return true else false
+     */
+
+    /**
+     * Check if given multidimension array position is valid to set new value.
+     * @.pre    arr != null &&
+     *          arr.length > 0 &&
+     *          pos != null
+     * @.post   (arr[pos.getX()][pos.getY()] == 0) Throw IndexOutOfBoundsException
+     *
+     * @.Throw  false
      */
     boolean isValidPosition(int[][] arr, Position pos) {
+        if(arr == null || pos == null)
+            return false;
+
         try {
             if(arr[pos.getX()][pos.getY()] == 0)
                 return true;
 
-        }catch(Exception err){
+        }catch(IndexOutOfBoundsException err){
             //System.out.println(err.getMessage());
             return false;
         }
         return false;
     }
 
+    /**
+     * Add fromArr valid values to toArr using isValidPosition to check value is valid
+     * @.pre    toArr != null &&
+     *          fromArr != null &&
+     *          pos != null
+     * @.post
+     */
     public boolean updatedValidArea(int[][] toArr, int[][] fromArr, Position pos){
-        int[][] temp = getCopyOfArray(toArr);
+        int[][] temp = getCopyOfMultidimensionArray(toArr);
 
         for(int x = 0; x < fromArr.length; x++){
             for(int y = 0; y < fromArr[x].length; y++){
@@ -48,7 +68,12 @@ public class Tehtava {
         return true;
     }
 
-    int[][] getCopyOfArray(int[][] arr){
+    /**
+     * Return copy of given multidimension array.
+     * @.pre    arr != null
+     * @.post   arr?
+     */
+    int[][] getCopyOfMultidimensionArray(int[][] arr){
         int[][] temp = new int[arr.length][arr[0].length];
         for(int i = 0; i < arr.length; i++){
             for(int j = 0; j < arr[i].length; j++){

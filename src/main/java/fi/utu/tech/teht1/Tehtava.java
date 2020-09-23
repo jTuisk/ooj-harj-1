@@ -4,10 +4,13 @@ public class Tehtava {
 
     /**
      * Palauttaa arvon tosi, jos taulukossa 'kiva' kaikki arvot ovat positiiviset.
-     * @.pre    kiva != null &&
+     * @.pre    kiva != null
      * @.post   FORALL(num: kiva; num > 0)
      */
     boolean onKiva(int[] kiva){
+        if(kiva == null)
+            return false;
+
         for(int num : kiva){
             if(num < 1)
                 return false;
@@ -16,13 +19,16 @@ public class Tehtava {
     }
 
     /**
-     * Palauttaa arvon tosi, jos merkkijonossa str -> 'syöte' on merkki c -> 'k'.
+     * Palauttaa arvon tosi, jos merkkijonossa str -> 'syöte' on merkki c -> 'k'
      * @.pre    str != null &&
      *          str.length > 0 &&
-     *          c != null &&
+     *          c != '\u0000'
      * @.post    FORALL(i: 0 <= i < str.length; str[i] == c)
      */
     boolean sisaltaakoMerkkiMerkkijonossa(String str, char c){
+        if(str == null || str.length() < 1 || c == '\u0000')
+            return false;
+
         for(int i = 0; i < str.length(); i++){
             if(str.charAt(i) == c)
                 return true;
