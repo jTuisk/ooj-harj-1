@@ -1,4 +1,4 @@
-package fi.utu.tech.teht3;
+package fi.utu.tech.teht4;
 
 import fi.utu.tech.teht1.Tehtava;
 import net.jqwik.api.*;
