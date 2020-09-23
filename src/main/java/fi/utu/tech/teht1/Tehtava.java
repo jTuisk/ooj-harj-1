@@ -55,7 +55,6 @@ public class Tehtava {
         int min_num_index = 0;
         for(int i = 1; i < lottorivi.length; i++){
             if(lottorivi[min_num_index] > lottorivi[i]){
-                lottorivi[min_num_index] = lottorivi[i];
                 min_num_index = i;
             }
         }
