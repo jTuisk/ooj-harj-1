@@ -29,7 +29,7 @@ public class Tehtava {
             return false;
 
         for(int i = 0; i < str.length(); i++){
-            if(str.charAt(i) == 'k')
+            if(str.toLowerCase().charAt(i) == 'k')
                 return true;
         }
         return false;

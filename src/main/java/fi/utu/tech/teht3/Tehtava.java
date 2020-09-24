@@ -13,7 +13,11 @@ public class Tehtava {
      * @.post   FORALL(x: 0 <= x < fromArr.length;
      *                  FORALL(y: 0 <= y < fromArr[x].length;
      *                      RESULT = (toArr[posX+x][posY+y] == 0)
+     * @.throws IndexOutOfBoundsException
+     *          (posX+x) >= fromArr.length &&
+     *          (posY+y) >= fromArr.length
      */
+
     boolean teht3(int[][] toArr, int[][] fromArr, int posX, int posY) throws IndexOutOfBoundsException {
         if(toArr == null || fromArr == null || posX > -1 || posY > -1)
             return false;
@@ -28,7 +32,6 @@ public class Tehtava {
         }
         return true;
     }
-
 
     /** TÄMÄN ALLA OLEVAT KOODIT EIVÄT KUULU TEHTÄVÄN PALAUTUKSEEN!!! **/
 

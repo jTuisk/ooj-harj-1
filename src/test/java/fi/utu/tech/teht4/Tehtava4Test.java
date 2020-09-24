@@ -2,12 +2,11 @@ package fi.utu.tech.teht4;
 
 import fi.utu.tech.teht1.Tehtava;
 import net.jqwik.api.*;
+import org.junit.jupiter.api.*;
 
 public class Tehtava4Test {
 
     Tehtava t = new Tehtava();
-
-
 
     /*Tehtävä 1A*/
 
@@ -31,12 +30,6 @@ public class Tehtava4Test {
 
     /*Tehtävä 1B*/
 
-    @Example
-    boolean testB_TrueExample() {
-        String str = "tässä on k kirjaimia";
-        return t.sisaltaakoMerkin(str);
-    }
-
     @Provide
     Arbitrary<String> stringB_True() {
         return Arbitraries.strings().withChars('k').ofLength(5);
@@ -57,19 +50,22 @@ public class Tehtava4Test {
 
     /*Tehtävä 1C*/
 
-    @Example
-    boolean testC_TrueExample() {
-        int[] arr =  {3,2,2,4,5,6,7};
-        return t.lottorivinMinimialkiollaDublikaatteja(arr);
+    @Provide
+    Arbitrary<int[]> intArrayC_True() {
+        Arbitrary<Integer> num = Arbitraries.integers().between(5,5);
+        return num.array(int[].class).ofSize(7);
     }
 
     @Provide
-    Arbitrary<int[]> intArrayC() {
+    Arbitrary<int[]> intArrayC_False() {
         Arbitrary<Integer> num = Arbitraries.integers().between(1,39);
         return num.array(int[].class).ofSize(7);
     }
 
-    @Property boolean testC_False(@ForAll("intArrayC") int[] arr){
+    @Property boolean testC_True(@ForAll("intArrayC_True") int[] arr){
+        return t.lottorivinMinimialkiollaDublikaatteja(arr);
+    }
+    @Property boolean testC_False(@ForAll("intArrayC_False") int[] arr){
         return t.lottorivinMinimialkiollaDublikaatteja(arr);
     }
 }
