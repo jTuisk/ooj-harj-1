@@ -3,6 +3,7 @@ package fi.utu.tech.fizzbuzz;
 import net.jqwik.api.*;
 
 public class FizzBuzzTests {
+
 	// provide numbers 3, 6, 9, ... for the test
 	@Provide
 	Arbitrary<Integer> divisibleBy3() {
