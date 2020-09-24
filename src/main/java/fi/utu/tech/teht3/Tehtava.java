@@ -4,6 +4,35 @@ import java.util.Arrays;
 
 public class Tehtava {
 
+
+    /**
+     * @.pre    toArr != null &&
+     *          fromArr != null &&
+     *          posX > -1 &&
+     *          posY > -1
+     * @.post   FORALL(x: 0 <= x < fromArr.length;
+     *                  FORALL(y: 0 <= y < fromArr[x].length;
+     *                      RESULT = (toArr[posX+x][posY+y] == 0)
+     */
+    boolean teht3(int[][] toArr, int[][] fromArr, int posX, int posY) throws IndexOutOfBoundsException {
+        if(toArr == null || fromArr == null || posX > -1 || posY > -1)
+            return false;
+
+        for(int x = 0; x < fromArr.length; x++){
+            for(int y = 0; y < fromArr[x].length; y++){
+                if(fromArr[x][y] != 0){
+                    if(toArr[posX+x][posY+y] != 0)
+                        return false;
+                }
+            }
+        }
+        return true;
+    }
+
+
+    /** TÄMÄN ALLA OLEVAT KOODIT EIVÄT KUULU TEHTÄVÄN PALAUTUKSEEN!!! **/
+
+
     /**
      * Check if given multidimension array position is valid to set new value.
      * @.pre    arr != null &&
@@ -62,7 +91,7 @@ public class Tehtava {
     /**
      * Return copy of given multidimension array.
      * @.pre    arr != null
-     * @.post   arr?
+     * @.post   RESULT = arr
      */
     int[][] getCopyOfMultidimensionArray(int[][] arr){
         int[][] temp = new int[arr.length][arr[0].length];

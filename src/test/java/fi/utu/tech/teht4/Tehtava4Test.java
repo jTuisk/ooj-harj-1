@@ -3,7 +3,7 @@ package fi.utu.tech.teht4;
 import fi.utu.tech.teht1.Tehtava;
 import net.jqwik.api.*;
 
-public class Tehtava1Test {
+public class Tehtava4Test {
 
     Tehtava t = new Tehtava();
 
@@ -38,10 +38,18 @@ public class Tehtava1Test {
     }
 
     @Provide
-    Arbitrary<String> stringB_False() {
-        return Arbitraries.strings().withCharRange('a', 'z').ofMinLength(5).ofMaxLength(10);
+    Arbitrary<String> stringB_True() {
+        return Arbitraries.strings().withChars('k').ofLength(5);
     }
 
+    @Provide
+    Arbitrary<String> stringB_False() {
+       return Arbitraries.strings().withCharRange('a', 'j').ofMinLength(5).ofMaxLength(20);
+    }
+
+    @Property boolean testB_True(@ForAll("stringB_True") String s){
+        return t.sisaltaakoMerkin(s);
+    }
 
     @Property boolean testB_False(@ForAll("stringB_False") String s){
         return t.sisaltaakoMerkin(s);
@@ -54,7 +62,6 @@ public class Tehtava1Test {
         int[] arr =  {3,2,2,4,5,6,7};
         return t.lottorivinMinimialkiollaDublikaatteja(arr);
     }
-
 
     @Provide
     Arbitrary<int[]> intArrayC() {
