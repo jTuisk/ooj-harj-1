@@ -14,8 +14,10 @@ public class Tehtava {
      *                  FORALL(y: 0 <= y < fromArr[x].length;
      *                      RESULT = (toArr[posX+x][posY+y] == 0)
      * @.throws IndexOutOfBoundsException
-     *          (posX+x) >= fromArr.length &&
-     *          (posY+y) >= fromArr.length
+     *          (posX+x) >= fromArr.length ||
+     *          (posX+x) < 0 ||
+     *          (posY+y) >= fromArr.length ||
+     *          (posY+y) < 0
      */
 
     boolean teht3(int[][] toArr, int[][] fromArr, int posX, int posY) throws IndexOutOfBoundsException {
